@@ -1,7 +1,7 @@
 name: LargeRepo
 
 on:
-  pull_request:
+  pull_request
 
 env:
   NX_CLOUD_DISTRIBUTED_EXECUTION: 'true'  
@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        agent: [ 1, 2, 3 ]
+        agent: [ 1, 2 ]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -31,6 +31,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
+      - run: echo 'ENVS'
+      - run: echo $GITHUB_ACTIONS 
+      - run: echo $GITHUB_REF 
       - run: npm install
       - run: npx nx affected --base=origin/main --target=build --parallel --max-parallel=3
       - run: npx nx affected --base=origin/main --target=test --parallel --max-parallel=3
