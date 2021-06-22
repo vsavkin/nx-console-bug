@@ -1,6 +1,46 @@
 {
   "version": 2,
   "projects": {
+    "feature-about": {
+      "root": "libs/feature-about",
+      "sourceRoot": "libs/feature-about/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/feature-about",
+            "tsConfig": "libs/feature-about/tsconfig.lib.json",
+            "project": "libs/feature-about/package.json",
+            "entryFile": "libs/feature-about/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/feature-about/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/feature-about/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/feature-about"],
+          "options": {
+            "jestConfig": "libs/feature-about/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shop": {
       "root": "apps/shop",
       "sourceRoot": "apps/shop",
@@ -11,7 +51,8 @@
           "outputs": ["{options.outputPath}"],
           "options": {
             "root": "apps/shop",
-            "outputPath": "dist/apps/shop"
+            "outputPath": "dist/apps/shop",
+            ""
           },
           "configurations": {
             "production": {}
@@ -74,6 +115,37 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/shop-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "utils": {
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/utils",
+            "main": "libs/utils/src/index.ts",
+            "tsConfig": "libs/utils/tsconfig.lib.json",
+            "assets": ["libs/utils/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/utils"],
+          "options": {
+            "jestConfig": "libs/utils/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
