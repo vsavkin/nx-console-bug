@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        agent: [ 1, 2, 3 ]
+        agent: [ 1, 2 ]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -38,5 +38,4 @@ jobs:
       - run: npx nx affected --base=origin/main --target=build --parallel --max-parallel=3
       - run: npx nx affected --base=origin/main --target=test --parallel --max-parallel=3
       - run: npx nx affected --base=origin/main --target=lint --parallel --max-parallel=3
-      - run: npx nx affected --base=origin/main --target=e2e
       - run: npx nx-cloud stop-all-agents
