@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { formatTitle } from '@happyorg/utils
+import { formatTitle } from '@happyorg/utils';
 
 @Component({
   selector: 'happyorg-root',

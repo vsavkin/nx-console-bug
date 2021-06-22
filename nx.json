@@ -51,12 +51,6 @@
         "target": "build",
         "projects": "dependencies"
       }
-    ],
-    "test": [
-      {
-        "target": "build",
-        "projects": "self"
-      }
     ]
   }
 }
