@@ -3,9 +3,7 @@
   "affected": {
     "defaultBase": "master"
   },
-  "plugins": [
-    "./tools/project-graph-plugin"
-  ],
+  "plugins": ["./tools/project-graph-plugin"],
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -26,6 +24,13 @@
     }
   },
   "projects": {
+    "admin": {
+      "tags": []
+    },
+    "admin-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin"]
+    },
     "feature-about": {
       "tags": []
     },
@@ -39,5 +44,13 @@
     "utils": {
       "tags": []
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
