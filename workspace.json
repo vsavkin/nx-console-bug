@@ -52,7 +52,7 @@
           "options": {
             "root": "apps/shop",
             "outputPath": "dist/apps/shop",
-            ""
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {}
