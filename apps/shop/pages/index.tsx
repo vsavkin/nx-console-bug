@@ -10,7 +10,7 @@ export function Index() {
   return (
     <>
     <div>
-      {formatTitle('Index Page')}
+      {formatTitle('Index Page!!!')}
     </div>
     <Link href="/about">About</Link>
     </>

@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/shop',
     '<rootDir>/libs/feature-about',
     '<rootDir>/libs/utils',
+    '<rootDir>/apps/admin',
   ],
 };

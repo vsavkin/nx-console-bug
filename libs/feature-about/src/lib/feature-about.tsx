@@ -7,7 +7,7 @@ export function About(props: AboutProps) {
   return (
     <>
       <div>
-        About
+        About!!!
       </div>
       <Link href="/">Index</Link>
     </>
